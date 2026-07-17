@@ -105,6 +105,17 @@ p { margin: 0 0 1em; color: var(--text-dim); }
 
 .sidebar-foot { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 14px; }
 
+/* GitHub 链接 */
+.github-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text-dim); font-size: 13px; text-decoration: none;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.github-link:hover { background: var(--card); color: var(--text); border-color: var(--accent); }
+.github-link svg { flex: none; }
+
 /* 进度小卡 */
 .progress-card {
   background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);

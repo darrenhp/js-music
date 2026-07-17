@@ -1,5 +1,7 @@
 # js-music · 交互式音乐理论学习网站
 
+> 源码仓库：[github.com/darrenhp/js-music](https://github.com/darrenhp/js-music)
+
 面向零基础到进阶自学者的现代化、深色主题音乐理论学习单页应用（SPA）。
 覆盖**系统性乐理知识、吉他专项、互动听辨小游戏、音乐 JS 库实时展柜**四大方向，
 所有发声交互均绑定用户手势触发，进度通过 `localStorage` 持久化。
