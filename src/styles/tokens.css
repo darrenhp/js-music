@@ -1,0 +1,40 @@
+:root {
+  /* 背景层级 */
+  --bg: #0F1115;
+  --bg-elev: #161A21;
+  --card: #1B2029;
+  --card-hover: #20262F;
+  --border: #262C38;
+
+  /* 文本 */
+  --text: #E6E9EF;
+  --text-dim: #9AA3B2;
+  --text-faint: #5C6675;
+
+  /* 强调色（默认琥珀；运行时可切换为紫/薄荷） */
+  --accent: #F5A623;
+  --accent-soft: rgba(245, 166, 35, 0.14);
+  --accent-dim: rgba(245, 166, 35, 0.45);
+
+  /* 状态色 */
+  --ok: #34D399;
+  --bad: #F87171;
+
+  /* 字体 */
+  --font-sans: 'Inter', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* 圆角 */
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-sm: 8px;
+
+  /* 动效 */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --dur: 220ms;
+
+  /* 布局 */
+  --sidebar-w: 240px;
+  --bottombar-h: 60px;
+  --maxw: 1100px;
+}
