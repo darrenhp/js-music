@@ -78,6 +78,34 @@ class AudioEngine {
     })
   }
 
+  /** 用指定波形播放单音（音色对比：正弦/三角/方波/锯齿） */
+  async playWith(
+    note: string,
+    oscType: 'sine' | 'triangle' | 'square' | 'sawtooth',
+    dur: string = '2n'
+  ) {
+    await this.ensureStarted()
+    const s = new Tone.Synth({
+      oscillator: { type: oscType },
+      envelope: { attack: 0.01, decay: 0.2, sustain: 0.4, release: 0.8 },
+    }).toDestination()
+    s.volume.value = -12
+    s.triggerAttackRelease(note, dur)
+    setTimeout(() => s.dispose(), 2500)
+  }
+
+  /** 以指定音量（分贝）播放单音（响度 / 振幅对比） */
+  async playVolume(note: string, db: number, dur: string = '2n') {
+    await this.ensureStarted()
+    const s = new Tone.Synth({
+      oscillator: { type: 'triangle' },
+      envelope: { attack: 0.01, decay: 0.25, sustain: 0.3, release: 0.6 },
+    }).toDestination()
+    s.volume.value = db
+    s.triggerAttackRelease(note, dur)
+    setTimeout(() => s.dispose(), 2500)
+  }
+
   /** 极短节拍器点击声 */
   async click(pitch = 'C6') {
     await this.ensureStarted()
