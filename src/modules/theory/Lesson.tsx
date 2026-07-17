@@ -2,12 +2,11 @@ import { Link, useParams } from 'react-router-dom'
 import { getLesson } from '../../data/theory'
 import { useProgress } from '../../store/useProgress'
 import Visualization from '../../components/Visualization'
-import Quiz from '../../components/Quiz'
 
 export default function Lesson() {
   const { id = '' } = useParams()
   const lesson = getLesson(id)
-  const { state, completeLesson, recordQuizWrong } = useProgress()
+  const { state, completeLesson } = useProgress()
 
   if (!lesson) {
     return (
@@ -40,26 +39,22 @@ export default function Lesson() {
           ))}
         </section>
 
-        {/* 可视化示例 */}
-        {lesson.viz && (
-          <section className="section">
-            <h2>可视化示例</h2>
-            <div className="viz-box">
-              <Visualization spec={lesson.viz} />
-            </div>
-            <p className="faint" style={{ fontSize: 12, marginTop: 8 }}>
-              💡 所有发声需先点击页面任意位置以解锁音频（浏览器自动播放策略）。
-            </p>
-          </section>
-        )}
-
-        {/* 即时小测验 */}
-        {lesson.quiz && lesson.quiz.length > 0 && (
-          <section className="section">
-            <h2>即时小测验</h2>
-            <Quiz lessonId={lesson.id} questions={lesson.quiz} onWrong={recordQuizWrong} />
-          </section>
-        )}
+        {/* 可交互示例（点击发声） */}
+        <section className="section">
+          <h2>可交互示例</h2>
+          <p className="faint" style={{ fontSize: 12, marginBottom: 14 }}>
+            💡 每个示例都可点击发声；首次发声前请先点击页面任意位置以解锁音频（浏览器自动播放策略）。
+          </p>
+          <div className="examples">
+            {lesson.examples.map((ex, i) => (
+              <div className="viz-box example" key={i}>
+                <div className="example-title">{ex.title}</div>
+                {ex.desc && <div className="example-desc">{ex.desc}</div>}
+                <Visualization spec={ex} />
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
       <div style={{ marginTop: 24 }}>

@@ -3,10 +3,15 @@ import StaffCanvas from './StaffCanvas'
 import IntervalPlayer from './IntervalPlayer'
 import ChordDiagram from './ChordDiagram'
 import CircleOfFifths from './CircleOfFifths'
-import type { VizSpec } from '../data/theory'
+import Fretboard from './Fretboard'
+import ScalePlayer from './ScalePlayer'
+import ProgressionPlayer from './ProgressionPlayer'
+import RhythmDemo from './RhythmDemo'
+import MelodyPlayer from './MelodyPlayer'
+import type { PlayableExample } from '../data/theory'
 
-/** 按知识点声明的可视化类型分发到对应组件 */
-export default function Visualization({ spec }: { spec: VizSpec }) {
+/** 按示例声明的类型分发到对应可播放组件 */
+export default function Visualization({ spec }: { spec: PlayableExample }) {
   switch (spec.type) {
     case 'keyboard':
       return <Keyboard highlight={spec.highlight} />
@@ -18,6 +23,16 @@ export default function Visualization({ spec }: { spec: VizSpec }) {
       return <ChordDiagram chord={spec.chord || 'C'} />
     case 'circle':
       return <CircleOfFifths />
+    case 'fretboard':
+      return <Fretboard highlightPCs={spec.pcs || []} />
+    case 'scale':
+      return <ScalePlayer scale={spec.scale || 'C major'} />
+    case 'progression':
+      return <ProgressionPlayer chords={spec.chords || []} keyName={spec.keyName} />
+    case 'rhythm':
+      return <RhythmDemo beats={spec.beats || 4} pattern={spec.pattern || ['down', 'up', 'up', 'up']} bpm={spec.bpm} />
+    case 'melody':
+      return <MelodyPlayer notes={spec.notes || []} title={spec.title} />
     default:
       return <p className="faint">该知识点暂无可交互示例。</p>
   }

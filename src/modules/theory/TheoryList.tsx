@@ -7,7 +7,7 @@ export default function TheoryList() {
   return (
     <>
       <h1>乐理基础</h1>
-      <p className="muted">系统化的乐理知识，每个知识点都配有可交互示例与即时小测验。点击进入开始学习。</p>
+      <p className="muted">系统化的乐理知识，每个知识点都配有多个可点击发声的互动示例。点击进入开始学习。</p>
       <div className="lesson-list" style={{ marginTop: 18 }}>
         {THEORY_LESSONS.map((l) => {
           const done = state.completedLessons.includes(l.id)

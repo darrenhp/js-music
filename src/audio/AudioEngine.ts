@@ -46,6 +46,15 @@ class AudioEngine {
     this.synth!.triggerAttackRelease(notes, dur)
   }
 
+  /** 顺序播放一串单音（旋律 / 音阶上下行），各音间隔 gap 秒 */
+  async playSequence(notes: string[], gap = 0.34, dur: string = '4n') {
+    await this.ensureStarted()
+    const now = Tone.now()
+    notes.forEach((n, i) => {
+      this.synth!.triggerAttackRelease(n, dur, now + i * gap)
+    })
+  }
+
   /** 播放音程：依次两个音 */
   async playInterval(low: string, high: string, gap: string = '8n') {
     await this.ensureStarted()
