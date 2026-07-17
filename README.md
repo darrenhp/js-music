@@ -69,13 +69,13 @@ npm run preview
 
 **首次运行的必要前置：**
 
-`actions/configure-pages@v5` **不会**自动开通 Pages，因此需要二选一：
+`actions/configure-pages@v5` **不会**自动开通 Pages，且工作流 `permissions` 块无法授予
+`administration` 权限（GitHub 的 schema 不认该键），因此**必须先在仓库里手动开通一次**：
 
-- **A. 让 CI 自动开通（已默认开启）**：工作流中 `Setup Pages` 步骤带 `enablement: true`，
-  首次运行会自动启用 Pages 并设为「GitHub Actions」构建源。需仓库 `GITHUB_TOKEN` 具备
-  `administration: write` 权限（工作流 `permissions` 已包含）。
-- **B. 手动开通**（若自动开通失败）：进入仓库
-  **Settings → Pages → Build and deployment → Source 选择「GitHub Actions」**，保存后再跑一次工作流。
+1. 进入仓库 **Settings → Pages → Build and deployment → Source 选择「GitHub Actions」**，保存。
+2. 之后任意一次 push 到 `main` 或手动 `workflow_dispatch` 都会自动构建并部署。
+
+> 仅首次需要手动开通；开通后 CI 即可自行完成部署，无需再改任何配置。
 
 部署成功后，站点地址为：
 

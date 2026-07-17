@@ -5,12 +5,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# 允许工作流为 Pages 写入部署
+# 允许工作流为 Pages 写入部署（标准三件套，无需 administration / enablement）
 permissions:
   contents: read
   pages: write
   id-token: write
-  administration: write
 
 # 同一时间只跑一个部署，避免冲突
 concurrency:
@@ -38,8 +37,6 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
