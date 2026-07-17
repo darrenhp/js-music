@@ -20,14 +20,17 @@ export default function StaffCanvas({ notes, title }: Props) {
 
   useEffect(() => {
     const div = ref.current
-    if (!div) return
+    if (!div || notes.length === 0) return
     div.innerHTML = ''
     const width = Math.max(360, notes.length * 64 + 80)
     const height = 150
     const renderer = new Renderer(div, Renderer.Backends.SVG)
     renderer.resize(width, height)
     const ctx = renderer.getContext()
+    if (!ctx) return
+
     const stave = new Stave(10, 24, width - 16)
+    stave.setContext(ctx)
     stave.addClef('treble').addTimeSignature('4/4')
     stave.draw()
 
@@ -35,6 +38,7 @@ export default function StaffCanvas({ notes, title }: Props) {
     const voice = new Voice({ num_beats: notes.length, beat_value: 4 })
     voice.addTickables(staveNotes)
     new Formatter().joinVoices([voice]).format([voice], width - 60)
+    voice.setContext(ctx)
     voice.draw(ctx, stave)
 
     staveNotes.forEach((sn, i) => {
