@@ -5,8 +5,10 @@ const TonalDemo = lazy(() => import('./TonalDemo'))
 const VexFlowDemo = lazy(() => import('./VexFlowDemo'))
 const MidiDemo = lazy(() => import('./MidiDemo'))
 const WaveDemo = lazy(() => import('./WaveDemo'))
+const MusicTheoryArticle = lazy(() => import('./MusicTheoryArticle'))
 
 const TABS = [
+  { id: 'mtp', label: '乐理长文 · 译', Component: MusicTheoryArticle },
   { id: 'tone', label: 'Tone.js', Component: ToneDemo },
   { id: 'tonal', label: 'Tonal.js', Component: TonalDemo },
   { id: 'vexflow', label: 'VexFlow', Component: VexFlowDemo },
@@ -21,7 +23,7 @@ export default function Showcase() {
   return (
     <>
       <h1>音乐库技术展柜</h1>
-      <p className="muted">五个音乐 JS 库的真实可交互演示，每个子页签都直接调用对应库（按需懒加载，不拖慢首屏）。</p>
+      <p className="muted">五个音乐 JS 库的真实可交互演示 + 一篇全文翻译的《程序员的乐理课》（原文 runjs.app，所有代码示例可在此页直接运行）。每个子页签按需懒加载，不拖慢首屏。</p>
 
       <div style={{ display: 'flex', gap: 8, borderBottom: '1px solid var(--border)', margin: '18px 0', flexWrap: 'wrap' }}>
         {TABS.map((t) => (
