@@ -405,6 +405,7 @@ export default function MusicTheoryNerds() {
     ['乐谱与调号', 'n5'],
     ['关于和弦', 'n6'],
     ['结语', 'n7'],
+    ['延伸阅读', 'n8'],
   ]
 
   return (
@@ -466,6 +467,11 @@ export default function MusicTheoryNerds() {
 }
 .mtn-scaletbl { width: auto; }
 .mtn-scaletbl td:first-child { color: var(--text-faint); white-space: nowrap; }
+.mtn-reading { list-style: none; padding: 0; margin: 14px 0 18px; display: flex; flex-direction: column; gap: 12px; }
+.mtn-reading li { border-left: 2px solid var(--border); padding-left: 14px; line-height: 1.7; }
+.mtn-reading a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
+.mtn-reading a:hover { border-bottom-style: solid; }
+.mtn-reading-desc { color: var(--text-faint); display: block; font-size: 13px; margin-top: 2px; }
       `}</style>
 
       <header>
@@ -734,9 +740,61 @@ C 小调:    C    D    D#     F    G    G#   A#     C</pre>
       <p className="mtn-para">
         你也可以用这十二个音之外的音高，很多爵士、非西方音乐正是如此。把整个和弦/调的体系当成一套「规则」，就像研究文艺复兴绘画然后宣布「艺术就长这样」——不是的。想干嘛干嘛，好听就行。共识似乎是：音乐的真正核心是经营<strong>对比</strong>——和其他所有艺术形式一样。
       </p>
+      {/* ============ 8 ============ */}
+      <h2 className="mtn-h2" id="n8">延伸阅读</h2>
       <p className="mtn-para">
-        原文末尾列了一批延伸阅读（链接见原文）：John Baez 的《This Week's Finds in Mathematical Physics》（群论视角）、Toby Fox（《Undertale》作曲者）的音乐教程、《Musimathics》《How Music Really Works》《Combinatorial Music Theory》《The Geometry of Musical Rhythm》，以及 Music Stack Exchange 上关于「乐理为什么长这样」的讨论与《A Geometry of Music》。
+        如果你还没打算就此抛弃整个西方音乐传统，下面是作者在 Twitter 上实时研究这些内容时，大家推荐给ta的一批资料（中文名为编译者所加，均指向原文给出的链接）：
       </p>
+      <ul className="mtn-reading">
+        <li>
+          <a href="https://web.archive.org/web/20160722080401/http://math.ucr.edu/home/baez/week234.html" target="_blank" rel="noreferrer">
+            《本周数学物理新发现》（This Week's Finds in Mathematical Physics）
+          </a>
+          <span className="mtn-reading-desc">—— John Baez 著，从群论视角谈音阶与和声</span>
+        </li>
+        <li>
+          <a href="http://tobyfox.net/Tutorials/musicdef.html" target="_blank" rel="noreferrer">
+            《音乐》教程（Music）
+          </a>
+          <span className="mtn-reading-desc">—— Toby Fox（《Undertale》的作曲者兼作者本人）写的短文，主要罗列作曲时的种种考量</span>
+        </li>
+        <li>
+          <a href="https://www.amazon.com/Musimathics-Mathematical-Foundations-Music-Press/dp/0262516551" target="_blank" rel="noreferrer">
+            《音乐数学：音乐的数学基础》（Musimathics: The Mathematical Foundations of Music）
+          </a>
+          <span className="mtn-reading-desc">—— 好几个人都推荐的书（33 美元），作者自己还没买</span>
+        </li>
+        <li>
+          <a href="http://howmusicreallyworks.com/" target="_blank" rel="noreferrer">
+            《音乐到底是怎么回事》（How Music Really Works）
+          </a>
+          <span className="mtn-reading-desc">—— 开篇就夸口全书不用乐谱记号，前六章免费；书评说对作曲尤其有帮助</span>
+        </li>
+        <li>
+          <a href="http://andrewduncan.net/cmt/" target="_blank" rel="noreferrer">
+            《组合乐理》（Combinatorial Music Theory）
+          </a>
+          <span className="mtn-reading-desc">—— 像是一个忘了怎么不用重数学记号讲东西的数学家写的乐理</span>
+        </li>
+        <li>
+          <a href="https://www.amazon.com/Geometry-Musical-Rhythm-What-Makes/dp/1466512024" target="_blank" rel="noreferrer">
+            《音乐节奏的几何学：什么让节奏「好」？》（The Geometry of Musical Rhythm: What Makes a 'Good' Rhythm Good?）
+          </a>
+          <span className="mtn-reading-desc">—— 书名基本把内容交代完了</span>
+        </li>
+        <li>
+          <a href="http://music.stackexchange.com/questions/43095/tonality-and-rules/43108#43108" target="_blank" rel="noreferrer">
+            Music Stack Exchange 上的一个回答
+          </a>
+          <span className="mtn-reading-desc">—— 谈到理解「乐理为什么长这样」的各种尝试</span>
+        </li>
+        <li>
+          <a href="https://www.amazon.com/dp/0195336674/" target="_blank" rel="noreferrer">
+            《音乐的几何学》（A Geometry of Music）
+          </a>
+          <span className="mtn-reading-desc">—— 上面的 Stack Exchange 回答推荐的入门首选</span>
+        </li>
+      </ul>
       <p className="mtn-para">
         有趣的是：上一篇《程序员的乐理课》（Luke Haas, 2026）的作者，正是在这篇文章的启发下动笔的——你在展柜里看到的两篇长文，是一根传了十年的接力棒。
       </p>
