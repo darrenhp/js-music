@@ -10,7 +10,7 @@ const MusicTheoryNerds = lazy(() => import('./MusicTheoryNerds'))
 const LightnoteLessons = lazy(() => import('./LightnoteLessons'))
 
 const TABS = [
-  { id: 'mtp', label: '乐理长文 · 译', Component: MusicTheoryArticle },
+  { id: 'mtp', label: '给程序员的乐理 · 译', Component: MusicTheoryArticle },
   { id: 'mtn', label: '给极客的乐理 · 译', Component: MusicTheoryNerds },
   { id: 'ln', label: 'Lightnote 交互课', Component: LightnoteLessons },
   { id: 'tone', label: 'Tone.js', Component: ToneDemo },
